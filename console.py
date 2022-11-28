@@ -129,13 +129,10 @@ class HBNBCommand(cmd.Cmd):
         args1 = args1[1:]
         args3 = {args1[i]: eval(args1[i + 1]) for i in range(0, len(args1), 2)}
         for key, value in args3.items():
-            if hasattr(new_instance, key):
-                setattr(new_instance, key, value)
+            setattr(new_instance, key, value)
         
-        storage.save()
         new_instance.save()
         print(new_instance.id)
-        storage.save()
 
 
     def help_create(self):
