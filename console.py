@@ -130,8 +130,8 @@ class HBNBCommand(cmd.Cmd):
         args3 = {args1[i]: eval(args1[i + 1]) for i in range(0, len(args1), 2)}
         for key, value in args3.items():
             setattr(new_instance, key, value)
-        
         new_instance.save()
+        storage.save()
         print(new_instance.id)
 
 
