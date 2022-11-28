@@ -123,11 +123,11 @@ class HBNBCommand(cmd.Cmd):
         elif args2[0] not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-        new_instance = HBNBCommand.classes[args2[0]]()
+        '''new_instance = HBNBCommand.classes[args2[0]]()
         args1 = args1.replace("=", " ")
         args1 = args1.split(" ")
         args1 = args1[1:]
-        args3 = {args1[i]: eval(args1[i + 1]) for i in range(0, len(args1), 2)}
+        args3 = {args1[i]: eval(args1[i + 1]) for i in range(0, len(args1), 2)}'''
         for key, value in args3.items():
             setattr(new_instance, key, value)
         new_instance.save()
