@@ -57,6 +57,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
+        '''new method'''
         if obj is None:
             return
         new_dict = {}
