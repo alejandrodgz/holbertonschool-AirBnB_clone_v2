@@ -71,7 +71,6 @@ class BaseModel:
         for key, value in dictionary.items():
             if key != '_sa_instance_state':
                 new_dict[key] = value
-        print(new_dict)
         return new_dict
 
     def delete(self):
