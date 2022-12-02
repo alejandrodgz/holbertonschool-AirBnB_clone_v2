@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''db mysql storage'''
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from models.base_model import Base
 import os
 from models.amenity import Amenity
@@ -25,6 +25,7 @@ classes = {'User': User,
           'Place':Place,
           'Review':Review}
 
+
 class DBStorage:
     __engine= None
     __session= None
@@ -32,7 +33,7 @@ class DBStorage:
     def __init__(self):
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
         .format(user, password, host, database), pool_pre_ping=True)
-        if os.getenv('HBNB_ENV') == 'test':
+        if os.getenv('HBNB_ENV') == 'db':
             Base.metadata.drop_all(self.__engine)
     
     def all(self, cls=None):
