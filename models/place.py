@@ -2,7 +2,7 @@
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
 import os
-from sqlalchemy import Column, String, Integer, ForeignKey, Float, Table, MetaData
+from sqlalchemy import Column, String, Integer, ForeignKey, Float
 from sqlalchemy.orm import relationship
 import models
 
