@@ -42,7 +42,7 @@ def ptext(text="is cool"):
         new_string: new string
     """
     new_string = text.replace("_", " ")
-    return "C {}".format(new_string)
+    return "Python {}".format(new_string)
 
 
 if __name__ == '__main__':
