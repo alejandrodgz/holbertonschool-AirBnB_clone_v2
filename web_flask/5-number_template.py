@@ -57,7 +57,8 @@ def ntext(n):
 
 @app.route('/number_template/<int:n>')
 def template_1(n):
-    data = n
+    '''first template attempt'''
+    data ={"datos": n}
     return render_template('5-number.html', data=data)
 
 if __name__ == '__main__':
