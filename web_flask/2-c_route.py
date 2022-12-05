@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 script starts Flask web app
     listen on 0.0.0.0, port 5000
@@ -9,30 +8,27 @@ script starts Flask web app
 """
 
 from flask import Flask
-
-
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
-@app.route('/', strict_slashes=False)
-def hello():
-    '''just a friendly hello'''
+@app.route('/')
+def hello_hbnb():
+    """display text"""
     return "Hello HBNB!"
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/hbnb')
 def hbnb():
-    '''just another comment'''
+    """display text"""
     return "HBNB"
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def text(text):
-    '''just another comment'''
-    new_string = text.replace("_", " ")
-    return f"C {new_string}"
+@app.route('/c/<text>')
+def c_text(text):
+    """display custom text given"""
+    return "C {}".format(text.replace('_', ' '))
 
 
-if __name__ == '__main__':
-    '''just another comment'''
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
