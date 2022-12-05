@@ -48,15 +48,16 @@ def ptext(text):
 
 
 @app.route('/python/<int:n>')
-def text(n):
+def ntext(n):
     """
     just another comment:
         n: must be a number
     """
     if isinstance(n, int):
+        """dont know"""
         return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
-
+    '''dont know'''
     app.run(host="0.0.0.0", port=5000)
