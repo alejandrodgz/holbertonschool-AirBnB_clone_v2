@@ -47,7 +47,7 @@ def ptext(text):
     return "Python {}".format(new_string)
 
 
-@app.route('/python/<int:n>')
+@app.route('/number/<int:n>')
 def ntext(n):
     """
     just another comment:
