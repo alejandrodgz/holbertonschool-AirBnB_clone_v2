@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
-'''comments without meaning'''
+"""
+script starts Flask web app
+    listen on 0.0.0.0, port 5000
+    routes: /:         display "Hello HBNB!"
+            /hbnb:     display "HBNB"
+            /c/<text>: display "C" + text (replace underscores with space)
+"""
 
 from flask import Flask
 
