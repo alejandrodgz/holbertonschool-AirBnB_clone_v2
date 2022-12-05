@@ -16,12 +16,16 @@ def hello():
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    '''just another comment'''
     return "HBNB"
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def text(text):
-    new_string = text.replace("_"," ")
+    '''just another comment'''
+    new_string = text.replace("_", " ")
     return f"C {new_string}"
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
