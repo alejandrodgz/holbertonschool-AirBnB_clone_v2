@@ -33,9 +33,9 @@ def text(text):
         new_string: new string
     """
     new_string = text.replace("_", " ")
-    return f"C {new_string}"
+    return "C {}".format(new_string)
 
 
 if __name__ == '__main__':
-    
+
     app.run(host="0.0.0.0", port=5000)
