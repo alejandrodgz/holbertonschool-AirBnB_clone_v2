@@ -36,7 +36,6 @@ def text(text):
     return "C {}".format(new_string)
 
 @app.route('/python/', defaults={'text': "is cool"})
-@app.route('/python/<text>')
 def ptext(text):
     """
     just another comment:
