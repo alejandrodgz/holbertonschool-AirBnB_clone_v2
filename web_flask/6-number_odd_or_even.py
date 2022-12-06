@@ -62,11 +62,13 @@ def template_1(n):
     data = n
     return render_template('5-number.html', data=data)
 
+
 @app.route('/number_odd_or_even/<int:n>')
 def even_or(n):
     """even or odd"""
-    data=n
+    data = n
     return render_template('6-number_odd_or_even.html', data=data)
+
 
 if __name__ == '__main__':
     '''dont know'''
