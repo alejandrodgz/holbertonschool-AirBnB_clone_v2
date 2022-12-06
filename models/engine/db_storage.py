@@ -38,15 +38,22 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """query on the current database session"""
-        new_dict = {}
-        for clss in classes:
-            if cls is None or cls is classes[clss] or cls is clss:
-                objs = self.__session.query(classes[clss]).all()
-                for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
-                    new_dict[key] = obj
-        return (new_dict)
+        dict_1 = {}
+        if cls is None:
+            for value in classes.values():
+                state_info = self.__session.query(value)
+                for obj in state_info:
+                    key = obj.__class__.__name__ + "." + obj.id
+                    dict_1[key] = obj
+        else:
+            for value in classes.values():
+                state_info = self.__session.query(value)
+                for obj in state_info:
+
+                    if obj.__class__ == cls:
+                        key = obj.__class__.__name__ + "." + obj.id
+                        dict_1[key] = obj
+        return dict_1
 
     def new(self, obj):
         '''new obj added to the session'''
@@ -69,4 +76,4 @@ class DBStorage:
     
     def close(self):
         """close session"""
-        self.__session.close()
+        self.__session.close_all_sessions()
