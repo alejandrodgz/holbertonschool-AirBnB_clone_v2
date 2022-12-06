@@ -46,7 +46,9 @@ class DBStorage:
                     key = obj.__class__.__name__ + "." + obj.id
                     dict_1[key] = obj
         else:
-            state_info = self.__session.query(classes[cls])
+            
+            tat = self.__session.query(State)
+            state_info = self.__session.query(classes[cls.__name__])
             for obj in state_info:
                 key = obj.__class__.__name__ + "." + obj.id
                 dict_1[key] = obj
