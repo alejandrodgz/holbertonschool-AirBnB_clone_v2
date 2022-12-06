@@ -67,8 +67,7 @@ class FileStorage:
             else:
                 new_dict[key] = value
         FileStorage.__objects = new_dict
-    
+
     def close(self):
         '''close'''
         self.reload()
-
