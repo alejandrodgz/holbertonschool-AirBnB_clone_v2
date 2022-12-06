@@ -5,6 +5,7 @@ from models.base_model import Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 import os
+import models
 
 
 class City(BaseModel, Base):
@@ -26,13 +27,11 @@ class City(BaseModel, Base):
         super().__init__(*args, **kwargs)
 
     if os.getenv('HBNB_TYPE_STORAGE') != "db":
-        @property
-        def cities(self):
-            from models import storage
-            """getter for list of city instances related to the state"""
-            city_list = []
-            all_cities = storage.all(City)
-            for city in all_cities.values():
-                if city.state_id == self.id:
-                    city_list.append(city)
-            return city_list
+        def reviews(self):
+            dict_result = {}
+            '''getter'''
+            dict1 = models.storage.all('City')
+            for key, value in dict1.items():
+                if value.city_id == self.id:
+                    dict_result[key] = value
+            return dict_result

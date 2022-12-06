@@ -65,7 +65,12 @@ class DBStorage:
         self.__session.delete(obj)
 
     def reload(self):
+        '''activate session'''
         Base.metadata.create_all(self.__engine)
         Session1 = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session2 = scoped_session(Session1)
         self.__session = Session2()
+    
+    def close(self):
+        """close session"""
+        self.__session.remove()
