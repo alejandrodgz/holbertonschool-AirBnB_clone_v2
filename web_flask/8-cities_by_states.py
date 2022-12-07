@@ -4,10 +4,12 @@ connection between the database and
 front
 '''
 from models.state import State
+from models.state import *
 from flask import Flask, render_template
 from models import storage
 from models import *
 import sys
+import os
 sys.path.append("..")
 
 app = Flask(__name__)

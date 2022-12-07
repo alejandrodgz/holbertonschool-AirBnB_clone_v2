@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        {% set flag = namespace(count=0) %}
+        {% for i in data|sort(attribute="name") %}
+        {% if i.id == id_url %}
+        {% set flag.count = 1 %}
+        <h1>States</h1>
+        <ul>
+            <li>{{ i.id }}: <b>{{ i.name }}</b></li>
+            <ul>
+                {% for j in i.cities %}
+                <li>{{ j.id }}: <b>{{ j.name }}</b></li>
+                {% endfor %}
+            </ul>
+        </ul>
+        {% endif %}
+        {% endfor %}
+        {% if flag.count == 0 %}
+        <h1>Not found!</h1>
+        {% endif %}
+    </body>
+</html>
