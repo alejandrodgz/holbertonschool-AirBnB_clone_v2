@@ -6,13 +6,14 @@
         <h1>States</h1>
         <ul>
             {% for i in data|sort(attribute='name') %}
-            <LI>{{ i.id }}: <b>{{ i.name }}</b></LI>
+            <LI>{{ i.id }}: <b>{{ i.name }}</b>
                 <ul>
                     {% for j in i.cities|sort(attribute="name")%}
                     <LI>{{ j.id }}: <b>{{ j.name }}</b></LI>
                     {% endfor %}
                 </ul>
             {% endfor %}
+            </LI>
         </ul>
     </body>
 </html>
