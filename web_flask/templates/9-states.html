@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <title>HBNB</title>
     </head>
     <body>
         {% set flag = namespace(count=0) %}
         {% for i in data|sort(attribute="name") %}
         {% if i.id == id_url %}
         {% set flag.count = 1 %}
-        <h1>States</h1>
+        <h1>States: {{i.name}}</h1>
+        <h3>Cities:</h3>
         <ul>
-            <li>{{ i.id }}: <b>{{ i.name }}</b></li>
-            <ul>
-                {% for j in i.cities %}
-                <li>{{ j.id }}: <b>{{ j.name }}</b></li>
-                {% endfor %}
-            </ul>
+            {% for j in i.cities|sort(attribute="name") %}
+            <li>{{ j.id }}: <b>{{ j.name }}</b></li>
+            {% endfor %}
         </ul>
         {% endif %}
         {% endfor %}
