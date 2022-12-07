@@ -5,7 +5,7 @@
     <body>
         <h1>States</h1>
         <ul>
-            {% for i in data %}
+            {% for i in data|sort(attribute='name') %}
             <li>{{ i.id }}: <b>{{ i.name }}</b></li>
             {% endfor %}
         </ul>
